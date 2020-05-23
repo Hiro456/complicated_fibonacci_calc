@@ -5,7 +5,6 @@ services:
 
 before_install:
   - docker build -t fgiopp/react-test -f ./client/Dockerfile.dev ./client
-  - docker build myotherproject
 
 script: fgi
   - docker run -e CI=true fgiopp/react-test npm test
