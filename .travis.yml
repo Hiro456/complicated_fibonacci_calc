@@ -22,3 +22,15 @@ after_success:
   - docker push dochiro94/multi-server
   - docker push dochiro94/multi-worker
   
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: "eu-south-1"
+  app: "multi-docker"
+  env: "MultiDocker-env"
+  bucket_name: "elasticbeanstalk-eu-south-1-759315199516"
+  bucket_path: "docker-multi"
+  on:
+    branch: master
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
